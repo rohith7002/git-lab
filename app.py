@@ -6,13 +6,18 @@ from stats import average, highest
 
 MARKS = [72, 65, 88, 91, 54]
 
+
 def main():
     settings = load_env()
-    print(settings["APP_NAME"])
-    print("Count :", len(MARKS))
+
+    # Use a default name if APP_NAME is missing
+    app_name = settings.get("APP_NAME", "Marks Tool")
+    print(app_name)
+
+    print("Count:", len(MARKS))
     print("Average:", average(MARKS))
     print("Highest:", highest(MARKS))
 
+
 if __name__ == "__main__":
     main()
-
